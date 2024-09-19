@@ -1,0 +1,17 @@
+class Solution {
+    public int partitionString(String s) {
+       HashMap<Character,Integer> mpp=new HashMap<>();
+        int index=0;
+        int ans=1;
+        StringBuilder sb=new StringBuilder(s);
+        for(int i=0;i<sb.length();i++){
+            char ch=sb.charAt(i);
+            if(mpp.containsKey(ch) && mpp.get(ch)>=index){
+                index=i;
+                ans++;
+            }
+             mpp.put(ch,i);
+        }
+        return ans;
+    }
+}
